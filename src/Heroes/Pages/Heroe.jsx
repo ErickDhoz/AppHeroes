@@ -13,6 +13,7 @@ function Heroe() {
     const {id} = useParams();
 
     const hero = useMemo(() => getHeroById(id), [id]);
+    const heroImageUrl = `/heroes/${ id }.jpg`;
 
     if (! hero) {
         return <Navigate to='/'/>
@@ -21,9 +22,7 @@ function Heroe() {
     return (
         <div className="row mt-5">
             <div className="col-4 animate__animated animate__fadeInLeft">
-                <img src={
-                        `/assets/heroes/${id}.jpg`
-                    }
+                <img src={heroImageUrl}
                     alt={
                         hero.superhero
                     }
